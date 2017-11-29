@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<script>
+		$(function(){
+			// 封装一个promise;
+			var  p  = function(url){
+				return new Promise(function(resolve,reject){
+
+					$.get(url,function(data){
+					resolve(data);
+
+					})
+				})
+			}
+
+
+
+
+			Promise.all([
+					p("https://cnodejs.org/api/v1/topics?tab=good"),
+					p("https://cnodejs.org/api/v1/topics?tab=share"),
+					p("https://cnodejs.org/api/v1/topics?tab=ask"),
+					p("https://cnodejs.org/api/v1/topics?tab=job")
+				]).then(function(result){
+					console.log(result);
+				})
+		})
+	</script>
+</body>
+</html>

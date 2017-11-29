@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+
+
+
+
+
+	// new Promise(function(resolve,reject){
+
+	// 		setTimeout(function(){
+	// 		var a = "结果"
+	// 		console.log(a );
+
+	// 		resolve(a);
+	// 		},1000)
+	// 		}).then(function(data){
+	// 			console.log(data)
+	// 		})
+
+
+
+// var p1 = function(){
+// 	return  new Promise(function(resolve,reject){
+// 	 	console.log("11111");
+// 	 	resolve("222222");
+// 	 })
+// }
+
+// p1().then(function(data){
+// 	console.log(data)
+// });
+
+	
+
+	var p1 = function(){
+		return new Promise(function(resolve,reject){
+
+
+
+		var a = "结果"
+		console.log(a );
+		resolve(a)
+		
+
+
+		})
+
+	}
+	p1().then(function(data){
+		console.log(data)
+		// 在这个函数里面操作结果;
+	})
+	</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+<script>
+
+	  var count = 0;
+	  var arr = [];
+
+		function handle() {
+			    if (count === 4) {
+			      console.log(arr);
+			    }
+			  }
+	  
+
+	  $.get("https://cnodejs.org/api/v1/topics?tab=good",function(data){
+		arr.push(data);
+		count++;
+		handle()
+		})
+	  $.get("https://cnodejs.org/api/v1/topics?tab=job",function(data){
+		arr.push(data);
+		count++;
+		handle()
+		})
+	  $.get("https://cnodejs.org/api/v1/topics?tab=share",function(data){
+		arr.push(data);
+		count++;
+		handle()
+		});
+	  $.get("https://cnodejs.org/api/v1/topics?tab=ask",function(data){
+		arr.push(data);
+		count++;
+		handle()
+		});
+
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<script>
+		$(function(){
+			// 封装一个promise;
+			var  p  = function(url){
+				return new Promise(function(resolve,reject){
+					$.get(url,function(data){
+					resolve(data);
+					})
+				})
+			}
+
+			var arr = []
+			p("https://cnodejs.org/api/v1/topics?tab=ask")
+			.then(function(data){
+				arr.push(data);
+				return p("https://cnodejs.org/api/v1/topics?tab=share")
+			}).then(function(data){
+				arr.push(data);
+				return p("https://cnodejs.org/api/v1/topics?tab=ask")
+			}).then(function(data){
+				arr.push(data);
+				return p("https://cnodejs.org/api/v1/topics?tab=good")
+			}).then(function(data){
+				arr.push(data);
+				console.log(arr);
+			})
+				
+			})
+		
+	</script>
+</body>
+</html>

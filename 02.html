@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="jquery.js"></script>
+</head>
+<body>
+	<script>
+		$(function(){
+			var arr = []
+			$.get("https://cnodejs.org/api/v1/topics?tab=ask",function(data){
+				arr.push(data);
+				$.get("https://cnodejs.org/api/v1/topics?tab=job",function(data){
+					arr.push(data);
+					$.get("https://cnodejs.org/api/v1/topics?tab=good",function(data){
+						arr.push(data);
+						$.get("https://cnodejs.org/api/v1/topics?tab=share",function(data){
+							arr.push(data);
+								console.log(arr)
+						})
+					})
+				
+				})
+			})
+		})
+	</script>
+</body>
+</html>
